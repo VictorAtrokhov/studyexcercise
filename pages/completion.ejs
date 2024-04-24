@@ -1,0 +1,98 @@
+<%- include('header') %>
+    <h1>Finish purchase</h1>
+
+    <form class="container needs-validation" novalidate>
+        <div class="row g-3">
+            <div class="col-md-4 offset-md-2">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" class="form-control" id="firstName" value="" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    Please provide First name.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lastName" value="" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    Please provide Last name.
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-3 offset-md-2">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country"
+                    aria-describedby="validationServer03Feedback" required>
+                <div id="countryFeedback" class="invalid-feedback">
+                    Please provide a valid country.
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city"
+                    aria-describedby="validationServer03Feedback" required>
+                <div id="cityFeedback" class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="zipCode" class="form-label">Zip code</label>
+                <input type="text" class="form-control" id="zipCode"
+                    aria-describedby="validationServer03Feedback" required>
+                <div id="zipCodeFeedback" class="invalid-feedback">
+                    Please provide a zip code.
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6 offset-md-2">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" aria-describedby="addressFeedback" required 
+                    required>
+                <div id="addressFeedback" class="invalid-feedback">
+                    Please provide a zip code.
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="deliveryType" class="form-label">Delivery type</label>
+                <select class="form-select " id="deliveryType" aria-label="deliveryTypeFeedback" required >
+                    <option selected disabled hidden></option>
+                    <option value="1">By car</option>
+                    <option value="2">By foot</option>
+                    <option value="3">By drone</option>
+                </select>
+                <div id="deliveryTypeFeedback" class="invalid-feedback">
+                    Please select a delivery type.
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-10 offset-md-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="termcondition"
+                        aria-describedby="invalidCheck3Feedback" required>
+                    <label class="form-check-label" for="termcondition">
+                        Agree to terms and conditions
+                    </label>
+                    <div id="termconditionFeedback" class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8 offset-md-2">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+
+    </div>
+    <%- include('footer') %>

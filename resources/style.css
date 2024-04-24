@@ -1,0 +1,71 @@
+h1 {
+    color: red;
+}
+
+body{
+    min-height: 700px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: green;
+    /* Change this to your desired color */
+    background-color: grey;
+}
+
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
+.carousel-item h3,
+.carousel-item p {
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.card-body p{
+        max-height: 100px; /* Set the maximum height for the paragraph */
+        overflow: hidden; /* Hide any content that overflows the container */
+        text-overflow: ellipsis; /* Display an ellipsis (...) to indicate truncated text */
+        word-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+        white-space: normal; /* Prevent text from appearing as one continuous line */
+}
+
+.flexcont {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row-reverse; */
+    justify-content: space-evenly;
+}
+
+.flexcont .card {
+    min-width: 200px;
+    flex-basis: 25%;
+}
+
+
+#image-table{
+    margin: 0 auto; 
+}
+
+td{
+    position: relative;
+    margin: 25px;
+}
+
+td img{
+    height: 300px;
+    width: 300px;
+}
+
+td p{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
