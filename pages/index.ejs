@@ -7,10 +7,10 @@
             <div class="col">
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
-                        <%- include('parts/carouselitem', { text: "Cool belts", image: "/images/belt.jpeg" }) %>
-                        <%- include('parts/carouselitem', { text: "Fast laptops", image: "/images/laptop.jpg" }) %>
-                        <%- include('parts/carouselitem', { text: "Great brooms", image: "/images/broom.jpg" }) %>
-                        <%- include('parts/carouselitem', { text: "Fast Cars!", image: "/images/diesel.jpg" }) %>
+                        <%- include('parts/carouselitem', { text: "Cool belts", image: "/images/belt.jpeg", active: "active" }) %>
+                        <%- include('parts/carouselitem', { text: "Fast laptops", image: "/images/laptop.jpg", active: "" }) %>
+                        <%- include('parts/carouselitem', { text: "Great brooms", image: "/images/broom.jpg", active: "" }) %>
+                        <%- include('parts/carouselitem', { text: "Fast Cars!", image: "/images/diesel.jpg", active: "" }) %>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                         data-bs-slide="prev">

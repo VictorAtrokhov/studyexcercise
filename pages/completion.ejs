@@ -27,24 +27,24 @@
         <div class="row g-3">
             <div class="col-md-3 offset-md-2">
                 <label for="country" class="form-label">Country</label>
-                <input type="text" class="form-control" id="country"
-                    aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="country" aria-describedby="validationServer03Feedback"
+                    required>
                 <div id="countryFeedback" class="invalid-feedback">
                     Please provide a valid country.
                 </div>
             </div>
             <div class="col-md-3">
                 <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city"
-                    aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="city" aria-describedby="validationServer03Feedback"
+                    required>
                 <div id="cityFeedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
             <div class="col-md-2">
                 <label for="zipCode" class="form-label">Zip code</label>
-                <input type="text" class="form-control" id="zipCode"
-                    aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="zipCode" aria-describedby="validationServer03Feedback"
+                    required>
                 <div id="zipCodeFeedback" class="invalid-feedback">
                     Please provide a zip code.
                 </div>
@@ -54,7 +54,7 @@
         <div class="row g-3">
             <div class="col-md-6 offset-md-2">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" aria-describedby="addressFeedback" required 
+                <input type="text" class="form-control" id="address" aria-describedby="addressFeedback" required
                     required>
                 <div id="addressFeedback" class="invalid-feedback">
                     Please provide a zip code.
@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-2">
                 <label for="deliveryType" class="form-label">Delivery type</label>
-                <select class="form-select " id="deliveryType" aria-label="deliveryTypeFeedback" required >
+                <select class="form-select " id="deliveryType" aria-label="deliveryTypeFeedback" required>
                     <option selected disabled hidden></option>
                     <option value="1">By car</option>
                     <option value="2">By foot</option>
@@ -75,7 +75,16 @@
         </div>
 
         <div class="row g-3">
-            <div class="col-10 offset-md-2">
+            <div class="col-md-8 offset-md-2">
+                <div>
+                    <label for="commentsArea" class="form-label">Comments </label>
+                    <textarea class="form-control" id="commentsArea" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-10 offset-md-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="termcondition"
                         aria-describedby="invalidCheck3Feedback" required>
