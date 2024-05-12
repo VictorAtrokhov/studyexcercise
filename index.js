@@ -1,48 +1,89 @@
-const express = require('express');
-const path = require('path'); 
+const express = require("express");
+const path = require("path");
+const multiparty = require("multiparty");
 const app = express();
 const PORT = 3000;
+const mockDb = require("./mockDb");
 
-app.set('views', path.join(__dirname, 'pages'));
-app.set('view engine', 'ejs');
+// Initialize mock data
+mockDb.initMock();
 
+app.set("views", path.join(__dirname, "pages"));
+app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, 'resources')));
+app.use(express.static(path.join(__dirname, "resources")));
 
-// Define a route for the homepage
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Homepage' });
+app.get("/", (req, res) => {
+  res.render("index", { title: "Homepage" });
 });
 
-// Define routes
-app.get('/products', (req, res) => {
-    res.render('products', { title: 'Product catalog' });
+app.get("/products", (req, res) => {
+  let products;
+  let query = req.query.search;
+  if (query) {
+    products = mockDb.searchProductsByTitle(query);
+  } else {
+    products = mockDb.getProducts();
+  }
+  res.render("products", { title: "Product catalog", products: products });
 });
 
-app.get('/buy/:productId', (req, res) => {
-    console.log(req.params.productId);
-    res.render('completion', { title: 'Checkout' });
+app.get("/buy/:productId", (req, res) => {
+  console.log(req.params.productId);
+  let product = mockDb.searchProductById(req.params.productId);
+  res.render("completion", { title: "Checkout", product: product });
 });
 
-app.get('/view/:productId', (req, res) => {
-    console.log(req.params.productId);
-    res.render('productdetail', { title: 'Product Description' });
+app.get("/view/:productId", (req, res) => {
+  console.log(req.params.productId);
+  let product = mockDb.searchProductById(req.params.productId);
+  console.log(product);
+  res.render("productdetail", {
+    title: "Product Description",
+    product: product,
+  });
 });
 
-
-app.get('/other', (req, res) => {
-    res.render('other', { title: 'Something else' });
+app.get("/other", (req, res) => {
+  res.render("other", { title: "Something else" });
 });
 
-app.get('/about', (req, res) => {
-    res.render('about', { title: 'About shop' });
+app.get("/about", (req, res) => {
+  res.render("about", { title: "About shop" });
 });
 
-app.get('/bestCustomers', (req, res) => {
-    res.render('best', { title: 'Loyal customers' });
+app.get("/bestCustomers", (req, res) => {
+  let bestBuyers = mockDb.getBestBuyers();
+  let bestProducts = mockDb.getMostBoughtProducts();
+  let data = { bestBuyers: bestBuyers, bestProducts: bestProducts };
+  console.log(data);
+  res.render("best", { title: "Loyal customers", data: data });
+});
+
+app.post("/submit", (req, res) => {
+  const form = new multiparty.Form();
+
+  form.parse(req, (err, fields, files) => {
+    //Timeout to simulate real server.
+    setTimeout(() => {
+      if (err) {
+        console.error("Error parsing form data:", err);
+        res.status(404).send("Something went wrong");
+        return;
+      }
+
+      mockDb.increaseTimesBought(fields.id);
+      mockDb.addOrUpdateBuyer(`${fields.firstName} ${fields.lastName}`);
+
+      res.json({
+        success: true,
+        name: fields.title,
+      });
+    }, 3000);
+  });
 });
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

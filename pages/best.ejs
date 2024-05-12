@@ -17,30 +17,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><img src="/images/belt.jpeg" alt="Image 1">
-          <p>1. Belt</p>
+        <td><img src="<%= data.bestProducts[0].image %>" alt="Image 1">
+          <p>1. <%= data.bestProducts[0].title %></p>
         </td>
-        <td><img src="/images/belt.jpeg" alt="Image 2">
-          <p>2. Belt</p>
+        <td><img src="<%= data.bestProducts[1].image %>" alt="Image 2">
+          <p>2. <%= data.bestProducts[1].title %></p>
         </td>
-        </td>
-        <td><img src="/images/belt.jpeg" alt="Image 3">
-          <p>3. Belt</p>
-        </td>
+        <td><img src="<%= data.bestProducts[2].image %>" alt="Image 3">
+          <p>3. <%= data.bestProducts[2].title %></p>
         </td>
       </tr>
       <tr>
-        <td><img src="/images/belt.jpeg" alt="Image 4">
-          <p>4. Belt</p>
+        <td><img src="<%= data.bestProducts[3].image %>" alt="Image 4">
+          <p>4. <%= data.bestProducts[3].title %></p>
         </td>
+        <td><img src="<%= data.bestProducts[4].image %>" alt="Image 5">
+          <p>5. <%= data.bestProducts[4].title %></p>
         </td>
-        <td><img src="/images/belt.jpeg" alt="Image 5">
-          <p>5. Belt</p>
-        </td>
-        </td>
-        <td><img src="/images/belt.jpeg" alt="Image 6">
-          <p>6. Belt</p>
-        </td>
+        <td><img src="<%= data.bestProducts[5].image %>" alt="Image 6">
+          <p>6. <%= data.bestProducts[5].title %></p>
         </td>
       </tr>
     </tbody>
@@ -51,25 +46,24 @@
       <div class="col-5 offset-2">
         <h2> List of most loyal customers</h2>
         <ol>
-          <li>Biden</li>
-          <li>Trump</li>
-          <li>Obama</li>
-          <li>Bush</li>
-          <li>Clinton</li>
+          <% data.bestBuyers.forEach((buyer, index)=> { %>
+            <li>
+              <%= buyer.name %> : <%= buyer.count %>
+            </li>
+            <% }); %>
         </ol>
       </div>
       <div class="col-5">
         <h2> Same but without order</h2>
         <ul>
-          <li>Biden</li>
-          <li>Trump</li>
-          <li>Obama</li>
-          <li>Bush</li>
-          <li>Clinton</li>
+          <% data.bestBuyers.forEach((buyer, index)=> { %>
+            <li>
+              <%= buyer.name %> : <%= buyer.count %>
+            </li>
+            <% }); %>
         </ul>
       </div>
     </div>
   </div>
-
 
   <%- include('footer') %>

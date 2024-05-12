@@ -1,11 +1,12 @@
 <%- include('header') %>
     <h1>Finish purchase</h1>
 
-    <form class="container needs-validation" novalidate>
+    <form class="container needs-validation" id="buyForm" novalidate>
+
         <div class="row g-3">
             <div class="col-md-4 offset-md-2">
                 <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" value="" required>
+                <input type="text" class="form-control" id="firstName" name="firstName" value="" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -15,7 +16,7 @@
             </div>
             <div class="col-md-4">
                 <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" value="" required>
+                <input type="text" class="form-control" id="lastName" name="lastName" value="" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -27,7 +28,7 @@
         <div class="row g-3">
             <div class="col-md-3 offset-md-2">
                 <label for="country" class="form-label">Country</label>
-                <input type="text" class="form-control" id="country" aria-describedby="validationServer03Feedback"
+                <input type="text" class="form-control" id="country" name="country" aria-describedby="validationServer03Feedback"
                     required>
                 <div id="countryFeedback" class="invalid-feedback">
                     Please provide a valid country.
@@ -35,7 +36,7 @@
             </div>
             <div class="col-md-3">
                 <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" aria-describedby="validationServer03Feedback"
+                <input type="text" class="form-control" id="city" name="city" aria-describedby="validationServer03Feedback"
                     required>
                 <div id="cityFeedback" class="invalid-feedback">
                     Please provide a valid city.
@@ -43,7 +44,7 @@
             </div>
             <div class="col-md-2">
                 <label for="zipCode" class="form-label">Zip code</label>
-                <input type="text" class="form-control" id="zipCode" aria-describedby="validationServer03Feedback"
+                <input type="text" class="form-control" id="zipCode" name="zipCode" aria-describedby="validationServer03Feedback"
                     required>
                 <div id="zipCodeFeedback" class="invalid-feedback">
                     Please provide a zip code.
@@ -54,7 +55,7 @@
         <div class="row g-3">
             <div class="col-md-6 offset-md-2">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" aria-describedby="addressFeedback" required
+                <input type="text" class="form-control" id="address" name="address" aria-describedby="addressFeedback" required
                     required>
                 <div id="addressFeedback" class="invalid-feedback">
                     Please provide a zip code.
@@ -62,7 +63,7 @@
             </div>
             <div class="col-md-2">
                 <label for="deliveryType" class="form-label">Delivery type</label>
-                <select class="form-select " id="deliveryType" aria-label="deliveryTypeFeedback" required>
+                <select class="form-select " id="deliveryType" name="deliveryType" aria-label="deliveryTypeFeedback" required>
                     <option selected disabled hidden></option>
                     <option value="1">By car</option>
                     <option value="2">By foot</option>
@@ -78,12 +79,12 @@
             <div class="col-md-8 offset-md-2">
                 <div>
                     <label for="commentsArea" class="form-label">Comments </label>
-                    <textarea class="form-control" id="commentsArea" rows="3"></textarea>
+                    <textarea class="form-control" id="commentsArea" name="commentsArea" rows="3"></textarea>
                 </div>
             </div>
         </div>
 
-        <div class="row g-3">
+        <div class="row mb-3">
             <div class="col-md-10 offset-md-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="termcondition"
@@ -98,10 +99,19 @@
             </div>
         </div>
 
-        <div class="col-8 offset-md-2">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+        <div class="row g-3">
+            <div class="col-md-4 offset-md-2">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+            <div class="col-md-4">
+                <div class="text-end">
+                    <button class="btn btn-info" type="button">T: Fill form</button>
+                    <button class="btn btn-dark" type="reset">T: Clear form</button>
+                </div>
+            </div>
         </div>
+        <input type="hidden" name="id" value="<%= product.id %>">
+        <input type="hidden"  name="title" value="<%= product.title %>">
     </form>
-
     </div>
     <%- include('footer') %>

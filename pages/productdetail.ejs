@@ -1,0 +1,36 @@
+<%- include('header') %>
+
+    <h1>Detailed description of product</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="productImage">
+                    <img src="<%= product.image %>" class="img-fluid" alt="Product Image">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="menuItem col" data-content="content1">Element 1</div>
+                        <div class="menuItem col" data-content="content2">Element 2</div>
+                        <div class="menuItem col" data-content="content3">Element 3</div>                
+                    </div>
+                    <div class="content" id="content1">Content for Element 1</div>
+                    <div class="content hidden" id="content2">Content for Element 2</div>
+                    <div class="content hidden" id="content3">Content for Element 3</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h2>
+                    <%= product.title %>
+                </h2>
+                <p>Description: <%= product.description %>
+                </p>
+                <p>Price: <%= product.price.toFixed(2) %> $</p>
+                <p>Number of Times Bought: <%= product.timesBought %>
+                </p>
+                <p>Additional Field: Lorem ipsum</p>
+                <a href="/buy/<%= product.id %>" class="btn btn-primary">Buy Product</a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer') %>

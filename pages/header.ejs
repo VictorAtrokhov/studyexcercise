@@ -35,8 +35,9 @@
                     <a class="nav-link" aria-current="page" href="/about">About page</a>
                 </div>
             </div>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" id="searchForm">
+                <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                    aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -46,8 +47,11 @@
             <div class="overlay-content">
                 <h2>Cookies Consent</h2>
                 <p>We use cookies to ensure you get the best experience on our website.</p>
-                <button id="agree-btn"  class="btn btn-success">Agree</button>
+                <button id="agree-btn" class="btn btn-success">Agree</button>
                 <button id="dismiss-btn" class="btn btn-secondary">Dismiss for this session</button>
                 <button id="block-btn" class="btn btn-dark">Block Site</button>
             </div>
+        </div>
+        <div class="message-container hidden">
+            <div class="message">Your Message Here</div>
         </div>

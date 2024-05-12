@@ -3,14 +3,9 @@
     <h1>Welcome to product page</h1>
     <div class="container">
         <div class="row">
-            <%- include('parts/product', { title: "Belt", description: "belt is leather", link: 12 , image: "/images/belt.jpeg" }) %>
-            <%- include('parts/product', { title: "Nimbus 2000", description: "Malfoy has better but is OK", link: 12 , image: "/images/nimbus.jpg" }) %>
-            <%- include('parts/product', { title: "Retro car", description: "Broom should be faster", link: 12 , image: "/images/retrocar.jpg" }) %>
-            <%- include('parts/product', { title: "Cuban car", description: "Cool for summer vacations", link: 12 , image: "/images/cars.jpg" }) %>
-            <%- include('parts/product', { title: "Batmans belt", description: "Everything for crimefight", link: 12 , image: "/images/batman.jpg" }) %>
-            <%- include('parts/product', { title: "Macbook", description: "Forget your old PC", link: 12 , image: "/images/macbook.jpg" }) %>
-            <%- include('parts/product', { title: "Old PC", description: "Something olny increases in value with time", link: 12 , image: "/images/compaq.jpg" }) %>
-            <%- include('parts/product', { title: "Long belt", description: "Lorem IpLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It hassum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has", link: 12 , image: "/images/belt.jpeg" }) %>
+            <% products.forEach(product => { %>
+                <%- include('parts/product', product) %>
+            <% }); %>
         </div>
     </div>
 

@@ -37,6 +37,21 @@ section{
     z-index: 1234;
 }
 
+.message-container {
+    background-color: #f0f0f0;
+    text-align: center;
+    height: 50px; 
+    width: 100%; 
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .message {
+    font-size: 23px;
+    color: black;
+  }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: grey;
@@ -100,6 +115,31 @@ section{
     height: auto; 
 }
 
+.productImage {
+    width: auto; /* Adjust this to your desired fixed width */
+    height: 300px;
+    max-height: 300px; /* Adjust this to your desired fixed height */
+    overflow: hidden; /* Ensure the image doesn't overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    transition: height 2s, max-height 2s; /* Transition both height and max-height */
+}
+
+.productImage img {
+    max-width: 100%; 
+    max-height: 100%; 
+}
+
+.productImage:hover {
+    height: 100%; /* Transition smaller images to their natural size */
+    max-height: 600px; /* Limit larger images to a maximum height */
+    /* align-items: start; */
+}
+
+
+
 .flexcont {
     display: flex;
     flex-wrap: wrap;
@@ -131,7 +171,7 @@ td p{
     position: absolute;
     z-index: 100;
     top: 0;
-    left: 0;
+    left: 5px;
 }
 
 p.notsupport,
@@ -139,3 +179,6 @@ ul.notsupport li {
     color: red;
 }
 
+.hidden{
+    display: none;
+}
