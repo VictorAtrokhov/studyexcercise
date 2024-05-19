@@ -29,15 +29,12 @@ app.get("/products", (req, res) => {
 });
 
 app.get("/buy/:productId", (req, res) => {
-  console.log(req.params.productId);
   let product = mockDb.searchProductById(req.params.productId);
   res.render("completion", { title: "Checkout", product: product });
 });
 
 app.get("/view/:productId", (req, res) => {
-  console.log(req.params.productId);
   let product = mockDb.searchProductById(req.params.productId);
-  console.log(product);
   res.render("productdetail", {
     title: "Product Description",
     product: product,
@@ -56,7 +53,6 @@ app.get("/bestCustomers", (req, res) => {
   let bestBuyers = mockDb.getBestBuyers();
   let bestProducts = mockDb.getMostBoughtProducts();
   let data = { bestBuyers: bestBuyers, bestProducts: bestProducts };
-  console.log(data);
   res.render("best", { title: "Loyal customers", data: data });
 });
 

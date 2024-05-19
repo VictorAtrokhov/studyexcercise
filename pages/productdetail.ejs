@@ -9,13 +9,63 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="menuItem col" data-content="content1">Element 1</div>
-                        <div class="menuItem col" data-content="content2">Element 2</div>
-                        <div class="menuItem col" data-content="content3">Element 3</div>                
+                        <div class="menuItem col" data-content="content1">Random quote section</div>
+                        <div class="menuItem col selectedMenu" data-content="content2">Specifications</div>
+                        <div class="menuItem col" data-content="content3">Check country</div>
                     </div>
-                    <div class="content" id="content1">Content for Element 1</div>
-                    <div class="content hidden" id="content2">Content for Element 2</div>
-                    <div class="content hidden" id="content3">Content for Element 3</div>
+                    <div class="content hidden" id="content1">
+                        <h4>Random quote section</h4>
+                        <div data-content="content1">
+                            <div id="quoteDisplay"></div>
+                            <button class="btn btn-dark getQuoteButton" onclick="getQuote()">Get Quote</button>
+                        </div>
+                    </div>
+                    <div class="content" id="content2">
+                        <h4>Product Specifications</h4>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Product Name</td>
+                                    <td><%= product.title %></td>
+                                </tr>
+                                <tr>
+                                    <td>Model Number</td>
+                                    <td>AG-12345</td>
+                                </tr>
+                                <tr>
+                                    <td>Dimensions</td>
+                                    <td>Big product</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>999 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Awesomeness</td>
+                                    <td>Very</td>
+                                </tr>
+                                <tr>
+                                    <td>Condition</td>
+                                    <td>Used</td>
+                                </tr>
+                                <tr>
+                                    <td>Dynamic data</td>
+                                    <td>fasle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content hidden" id="content3">
+                        <h4>Product Contry</h4>
+                        <p id="productCountryContent"></p>
+                        <button id="ipCountry" class="btn btn-dark">Fetch IP and Country</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-5">
@@ -27,10 +77,26 @@
                 <p>Price: <%= product.price.toFixed(2) %> $</p>
                 <p>Number of Times Bought: <%= product.timesBought %>
                 </p>
-                <p>Additional Field: Lorem ipsum</p>
+                <p>Additional Field: Wanted to add something genereted by some AI, but could not find a free version</p>
                 <a href="/buy/<%= product.id %>" class="btn btn-primary">Buy Product</a>
             </div>
         </div>
     </div>
-
+    <!-- Special script to control overflow. Would be happy to know hot to fix it the other way -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productImage = document.querySelector('.productImage');
+            const contentArea = document.querySelector('.container');
+            if (productImage && contentArea) {
+                const initialContentHeight = contentArea.offsetHeight;
+                const hoverSizeIncrease = initialContentHeight * 0.2;
+                productImage.addEventListener('mouseenter', () => {
+                    productImage.style.height = `${initialContentHeight + hoverSizeIncrease}px`;
+                });
+                productImage.addEventListener('mouseleave', () => {
+                    productImage.style.height = '300px';
+                });
+            }
+        });
+    </script>
     <%- include('footer') %>
